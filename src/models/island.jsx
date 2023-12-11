@@ -9,7 +9,7 @@ Title: Fox's islands
 
 import { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useThree, useFrame } from "@react-three/fiber";
+// import { useThree, useFrame } from "@react-three/fiber";
 import islandScene from "../assets/3d/island.glb";
 import { a } from "@react-spring/three";
 
@@ -17,7 +17,7 @@ const Island = (props) => {
   const islandRef = useRef;
   const { nodes, materials } = useGLTF(islandScene);
   return (
-    <a.group {...props} ref={islandRef}>
+    <a.group ref={islandRef} {...props}>
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}
         material={materials.PaletteMaterial001}
@@ -49,7 +49,5 @@ const Island = (props) => {
     </a.group>
   );
 };
-
-useGLTF.preload("/island.glb");
 
 export default Island;
